@@ -1,0 +1,904 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adridex Work</title>
+<meta name="description" content="Selected work from Adridex — a digital marketing studio building fast, search-ready web platforms, from custom WordPress systems to full-stack Next.js apps.">
+<meta name="author" content="Adridex">
+<meta name="theme-color" content="#0a0d0b">
+<meta name="robots" content="index, follow">
+<!-- Update the absolute URLs below to match where you host this page -->
+<link rel="canonical" href="https://www.adridex.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Adridex">
+<meta property="og:title" content="Adridex — Web platforms engineered to grow">
+<meta property="og:description" content="A digital marketing studio building fast, search-ready web platforms — WordPress to Next.js. See selected work.">
+<meta property="og:url" content="https://www.adridex.com/">
+<meta property="og:image" content="https://www.adridex.com/images/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Adridex — Web platforms engineered to grow">
+<meta name="twitter:description" content="A digital marketing studio building fast, search-ready web platforms — WordPress to Next.js.">
+<meta name="twitter:image" content="https://www.adridex.com/images/og-cover.jpg">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ---------- tokens (committed dark) ---------- */
+:root{
+  --bg:#090c0a; --bg-2:#0c100b; --surface:#11160f; --card:#141a12; --card-2:#171e15;
+  --line:#262e23; --line-2:#374030; --text:#eef2e9; --muted:#98a18c; --faint:#6d7566;
+  --gold:#c9a227; --gold-2:#e7c96c; --green:#46d24d; --lime:#a6f13d;
+  --grad:linear-gradient(115deg,var(--green),var(--lime));
+  --grad-gl:linear-gradient(115deg,var(--green) 0%,var(--lime) 55%,var(--gold-2) 120%);
+  --shadow:0 24px 60px -28px rgba(0,0,0,.85);
+  --font-d:"Bricolage Grotesque",system-ui,sans-serif;
+  --font-b:"Hanken Grotesk",system-ui,sans-serif;
+  --font-m:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --wrap:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:var(--font-b); font-size:16px; line-height:1.6;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--font-d);font-weight:700;line-height:1.05;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+::selection{background:rgba(166,241,61,.28);color:#fff}
+
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(20px,5vw,48px)}
+.skip{position:absolute;left:-999px;top:0;z-index:100;background:var(--gold);color:#0a0d08;padding:.6em 1em;border-radius:0 0 10px 0;font-weight:600}
+.skip:focus{left:0}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px;border-radius:4px}
+
+/* eyebrow / labels */
+.eyebrow{font-family:var(--font-m);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:.6em}
+.eyebrow .tick{width:22px;height:1px;background:var(--grad)}
+.tint-gold{color:var(--gold-2)}
+.grad-text{background:var(--grad-gl);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--font-b);font-weight:600;font-size:.98rem;
+  padding:.82em 1.35em;border-radius:999px;border:1px solid transparent;cursor:pointer;text-decoration:none;
+  transition:transform .18s ease,border-color .18s ease,background .18s ease,color .18s ease,box-shadow .18s ease}
+.btn .ar{transition:transform .18s ease}
+.btn:hover .ar{transform:translate(2px,-2px)}
+.btn-primary{background:var(--grad);color:#08130a;box-shadow:0 10px 30px -12px rgba(120,220,70,.5)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 34px -12px rgba(120,220,70,.6)}
+.btn-ghost{border-color:var(--line-2);color:var(--text)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-2);transform:translateY(-2px)}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:50;background:rgba(9,12,10,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:70px}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.brand img{height:26px;width:auto}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{font-size:.92rem;color:var(--muted);text-decoration:none;transition:color .16s ease}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{display:flex;align-items:center;gap:1.2rem}
+.nav-toggle{display:none;background:none;border:1px solid var(--line-2);border-radius:9px;color:var(--text);padding:.5em .7em;cursor:pointer;font-family:var(--font-m);font-size:.8rem}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding-block:clamp(56px,9vw,104px) clamp(52px,7vw,88px)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(60% 60% at 82% 8%,rgba(166,241,61,.10),transparent 60%),
+    radial-gradient(50% 55% at 6% 92%,rgba(201,162,39,.10),transparent 60%)}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(28px,4vw,56px);align-items:center}
+.hero h1{font-size:clamp(2.5rem,6vw,4.3rem);font-weight:800;margin:.5em 0 .1em}
+.hero .lead{color:var(--muted);font-size:clamp(1.02rem,1.5vw,1.18rem);max-width:34ch;margin-top:1.1rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:2.6rem;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.stat{background:var(--bg-2);padding:1.05rem 1rem}
+.stat .n{font-family:var(--font-d);font-weight:700;font-size:1.7rem;line-height:1}
+.stat .l{font-family:var(--font-m);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.5rem}
+
+/* growth panel */
+.growth{position:relative;background:linear-gradient(160deg,var(--surface),var(--bg-2));border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow);overflow:hidden}
+.growth::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 90% at 90% 0,rgba(166,241,61,.12),transparent 55%);pointer-events:none}
+.growth-head{display:flex;justify-content:space-between;align-items:center;font-family:var(--font-m);font-size:.72rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.growth-head .dot{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime)}
+.growth svg{width:100%;height:auto;display:block;margin:.4rem 0 .2rem}
+.growth-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.4rem}
+.gtag{font-family:var(--font-m);font-size:.72rem;color:var(--muted);border:1px solid var(--line-2);border-radius:7px;padding:.3em .6em}
+.gtag b{color:var(--lime);font-weight:500}
+.arrowhead{filter:drop-shadow(0 0 6px rgba(166,241,61,.55));animation:pulse 3.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.75}50%{opacity:1}}
+/* interactive hero */
+.hero-grid{perspective:1100px}
+.hero .glow{position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(300px 300px at var(--mx,82%) var(--my,14%),rgba(166,241,61,.11),transparent 70%);
+  opacity:0;transition:opacity .35s ease}
+.hero:hover .glow{opacity:1}
+.growth{transition:transform .18s ease;transform-style:preserve-3d}
+.chart-wrap{position:relative}
+.hit{cursor:pointer;transition:fill .15s ease}
+.hit:hover{fill:rgba(166,241,61,.15)}
+.nodes circle{transition:r .15s ease}
+.trace{filter:drop-shadow(0 2px 8px rgba(70,210,77,.22))}
+.chart-tip{position:absolute;left:0;top:0;transform:translate(-50%,calc(-100% - 12px));
+  background:var(--bg);border:1px solid var(--line-2);border-radius:9px;padding:.42em .68em;
+  font-family:var(--font-m);font-size:.72rem;color:var(--text);white-space:nowrap;pointer-events:none;
+  box-shadow:var(--shadow);z-index:6}
+.chart-tip::after{content:"";position:absolute;left:50%;bottom:-5px;width:9px;height:9px;background:var(--bg);
+  border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2);transform:translateX(-50%) rotate(45deg)}
+
+/* ---------- clients strip ---------- */
+.clients{border-top:1px solid var(--line);padding-block:2.3rem}
+.clients-in{display:flex;align-items:center;gap:1.2rem 2.4rem;flex-wrap:wrap}
+.clients .lbl{font-family:var(--font-m);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);white-space:nowrap}
+.clients .names{display:flex;flex-wrap:wrap;gap:.9rem 1.9rem;align-items:center}
+.clients .names span{font-family:var(--font-d);font-weight:600;font-size:1.02rem;color:var(--muted);transition:color .2s ease}
+.clients .names span:hover{color:var(--text)}
+
+/* ---------- section frame ---------- */
+section{position:relative}
+.band{padding-block:clamp(64px,9vw,116px);border-top:1px solid var(--line)}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;flex-wrap:wrap;margin-bottom:2.6rem}
+.sec-head h2{font-size:clamp(1.9rem,3.6vw,2.8rem);font-weight:700;margin-top:.7rem}
+.sec-head .sub{color:var(--muted);max-width:46ch;margin-top:.8rem}
+.sec-idx{font-family:var(--font-m);font-size:.8rem;color:var(--faint);letter-spacing:.1em}
+
+/* ---------- featured work (compact + interactive) ---------- */
+.pgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.pcard{grid-column:span 2;position:relative;aspect-ratio:3/2;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg-2);
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.pcard.half{grid-column:span 3}
+.pcard:hover{transform:translateY(-5px);border-color:rgba(201,162,39,.55);box-shadow:var(--shadow)}
+.pcard-media{position:absolute;inset:0}
+.pshot{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .5s ease}
+.pcard:hover .pshot,.pcard:focus-within .pshot{transform:scale(1.07)}
+.brandpanel{width:100%;height:100%;display:grid;place-items:center;background:
+   radial-gradient(80% 120% at 20% 0,rgba(70,210,77,.16),transparent 55%),
+   radial-gradient(80% 120% at 100% 100%,rgba(201,162,39,.18),transparent 55%),var(--bg-2)}
+.brandpanel .chip{font-family:var(--font-m);font-size:.78rem;color:var(--text);border:1px solid var(--line-2);background:rgba(0,0,0,.4);border-radius:9px;padding:.55em .85em}
+.brandpanel .chip b{color:var(--lime);font-weight:500}
+.pdom{position:absolute;top:10px;left:10px;z-index:3;font-family:var(--font-m);font-size:.67rem;color:var(--text);
+  background:rgba(6,9,6,.55);border:1px solid var(--line-2);border-radius:6px;padding:.24em .55em;backdrop-filter:blur(4px)}
+.pcard-rest{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:.9rem 1rem;display:flex;flex-direction:column;gap:.12rem;
+  background:linear-gradient(transparent,rgba(6,9,6,.92));transition:opacity .25s ease}
+.pcard-rest h3{font-size:1.04rem}
+.pcat{font-family:var(--font-m);font-size:.63rem;text-transform:uppercase;letter-spacing:.13em;color:var(--gold-2)}
+.pcard-over{position:absolute;inset:0;z-index:4;padding:1rem;display:flex;flex-direction:column;justify-content:flex-end;gap:.5rem;
+  background:linear-gradient(180deg,rgba(6,9,6,.28) 0%,rgba(6,9,6,.72) 42%,rgba(6,9,6,.96) 100%);
+  opacity:0;transition:opacity .28s ease;overflow:hidden}
+.pcard:hover .pcard-over,.pcard:focus-within .pcard-over{opacity:1}
+.pcard:hover .pcard-rest,.pcard:focus-within .pcard-rest{opacity:0}
+.pcard-over h3{font-size:1.04rem}
+.pdesc{color:#d2d9c9;font-size:.82rem;line-height:1.45}
+/* promo card */
+.pcard.promo{display:flex;flex-direction:column;justify-content:center;gap:.6rem;padding:1.4rem;background:linear-gradient(165deg,var(--surface),var(--bg-2))}
+.pcard.promo h3{font-size:1.28rem}
+.pcard.promo p{color:var(--muted);font-size:.88rem}
+
+/* shared: tags + visit (also used by the builds grid) */
+.tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tag{font-family:var(--font-m);font-size:.7rem;color:var(--muted);background:rgba(255,255,255,.04);border:1px solid var(--line-2);border-radius:6px;padding:.26em .55em}
+.tag.key{color:var(--gold-2);border-color:rgba(201,162,39,.45)}
+.visit{display:inline-flex;align-items:center;gap:.4em;font-family:var(--font-m);font-size:.8rem;color:var(--lime);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .16s;width:fit-content}
+.visit:hover{border-color:var(--lime)}
+.visit.na{color:var(--faint);pointer-events:none}
+.visit .ar2{transition:transform .18s ease}
+.visit:hover .ar2{transform:translate(2px,-2px)}
+/* clickable cue + affordances */
+.pcard[data-project]{cursor:pointer}
+.pcue{position:absolute;top:10px;right:10px;z-index:3;font-family:var(--font-m);font-size:.62rem;letter-spacing:.09em;text-transform:uppercase;color:var(--text);
+  background:rgba(6,9,6,.55);border:1px solid var(--line-2);border-radius:6px;padding:.28em .5em;display:inline-flex;align-items:center;gap:.35em;backdrop-filter:blur(4px);transition:border-color .2s,color .2s}
+.pcard:hover .pcue,.pcard:focus-within .pcue{border-color:var(--gold);color:var(--gold-2)}
+.pmore{font-family:var(--font-m);font-size:.72rem;color:var(--lime);display:inline-flex;align-items:center;gap:.4em;margin-top:.15rem}
+
+/* ---------- project modal ---------- */
+.modal{position:fixed;inset:0;z-index:200;display:none;place-items:start center;padding:clamp(14px,4vw,44px) 16px;background:rgba(4,6,4,.74);backdrop-filter:blur(6px);overflow:auto}
+.modal.open{display:grid}
+.modal-card{position:relative;width:min(640px,100%);margin:auto;background:var(--card);border:1px solid var(--line-2);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;animation:modalIn .22s ease}
+@keyframes modalIn{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+.modal-x{position:absolute;top:12px;right:12px;z-index:4;width:34px;height:34px;border-radius:9px;border:1px solid var(--line-2);background:rgba(6,9,6,.6);color:var(--text);cursor:pointer;font-size:.95rem;line-height:1;display:grid;place-items:center;backdrop-filter:blur(4px);transition:border-color .18s,color .18s}
+.modal-x:hover{border-color:var(--gold);color:var(--gold-2)}
+.modal-media{position:relative;border-bottom:1px solid var(--line)}
+.modal-media img{width:100%;display:block}
+.modal-brand{aspect-ratio:16/7;display:grid;place-items:center;background:
+   radial-gradient(80% 120% at 20% 0,rgba(70,210,77,.16),transparent 55%),
+   radial-gradient(80% 120% at 100% 100%,rgba(201,162,39,.18),transparent 55%),var(--bg-2)}
+.modal-body{padding:1.4rem 1.6rem 1.7rem;display:flex;flex-direction:column;gap:.75rem}
+.m-meta{display:flex;justify-content:space-between;align-items:center;gap:.8rem;flex-wrap:wrap}
+.m-domain{font-family:var(--font-m);font-size:.76rem;color:var(--lime);text-decoration:none}
+.m-domain:hover{text-decoration:underline}
+.modal-body h3{font-size:1.5rem}
+.m-desc{color:var(--muted);font-size:.96rem;line-height:1.6}
+.m-hl{list-style:none;padding:0;margin:.1rem 0;display:flex;flex-direction:column;gap:.5rem}
+.m-hl li{position:relative;padding-left:1.4rem;font-size:.9rem;color:#c9d1bf;line-height:1.5}
+.m-hl li::before{content:"";position:absolute;left:0;top:.5em;width:9px;height:9px;border-radius:2px;background:var(--grad);transform:rotate(45deg)}
+.modal-body .btn{align-self:flex-start;margin-top:.4rem}
+
+/* ---------- capabilities ---------- */
+.caps{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.cap{background:linear-gradient(165deg,var(--surface),var(--bg-2));border:1px solid var(--line);border-radius:16px;padding:1.6rem}
+.cap h3{font-size:1.22rem;display:flex;align-items:center;gap:.6rem}
+.cap h3 .k{font-family:var(--font-m);font-size:.8rem;color:var(--gold);font-weight:400}
+.cap ul{list-style:none;padding:0;margin:1rem 0 0;display:flex;flex-wrap:wrap;gap:.5rem}
+.cap ul li{font-size:.86rem;color:#c3ccbb;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:8px;padding:.4em .7em}
+.techrow{margin-top:2.2rem;display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+.techrow .lbl{font-family:var(--font-m);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-right:.4rem}
+.chip-t{font-family:var(--font-m);font-size:.8rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:.35em .8em}
+
+/* ---------- results ---------- */
+.results{position:relative;overflow:hidden}
+.results::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  radial-gradient(55% 80% at 85% 8%,rgba(166,241,61,.08),transparent 60%),
+  radial-gradient(50% 80% at 8% 92%,rgba(201,162,39,.08),transparent 60%)}
+.results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.result{background:var(--bg-2);padding:1.7rem 1.4rem;display:flex;flex-direction:column;gap:.35rem}
+.result .rn{font-family:var(--font-d);font-weight:800;font-size:clamp(2.1rem,4vw,2.9rem);line-height:1;font-variant-numeric:tabular-nums}
+.result .rn .u{font-size:.46em;font-weight:700;color:var(--muted);margin-left:.18em}
+.result .rl{font-size:.9rem;color:var(--text);margin-top:.3rem}
+.result .rs{font-family:var(--font-m);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+
+/* ---------- testimonials ---------- */
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tcard{background:linear-gradient(165deg,var(--surface),var(--bg-2));border:1px solid var(--line);border-radius:16px;padding:1.6rem;display:flex;flex-direction:column;gap:1rem}
+.tcard .q{font-family:var(--font-d);font-weight:800;font-size:2.4rem;line-height:.4;color:var(--gold);height:.5em}
+.tcard blockquote{margin:0;font-size:1rem;line-height:1.55;color:#d4dbca}
+.tcard .who{margin-top:auto;display:flex;flex-direction:column;gap:.12rem}
+.tcard .who .nm{font-weight:600;font-size:.92rem}
+.tcard .who .rl{font-family:var(--font-m);font-size:.72rem;color:var(--muted);letter-spacing:.02em}
+
+/* ---------- contact ---------- */
+.contact{position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  radial-gradient(50% 80% at 15% 20%,rgba(70,210,77,.12),transparent 60%),
+  radial-gradient(55% 90% at 90% 90%,rgba(201,162,39,.13),transparent 60%)}
+.contact-in{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
+.contact h2{font-size:clamp(2rem,4vw,3.1rem);font-weight:800}
+.contact p{color:var(--muted);margin-top:1rem;max-width:42ch}
+.contact-methods{display:flex;flex-direction:column;gap:.7rem;margin-top:1.7rem}
+.cmethod{display:flex;align-items:center;gap:.9rem;text-decoration:none;color:var(--text);padding:.7rem .9rem;border:1px solid var(--line);border-radius:12px;background:var(--bg-2);transition:border-color .18s ease,transform .18s ease}
+.cmethod:hover{border-color:var(--gold);transform:translateX(3px)}
+.cmethod .ci{width:38px;height:38px;flex:none;display:grid;place-items:center;border-radius:9px;background:var(--surface);border:1px solid var(--line-2);color:var(--lime);font-size:1rem}
+.cmethod .ck{display:block;font-family:var(--font-m);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.cmethod .cv{display:block;font-weight:600;font-size:.95rem}
+.cform{display:flex;flex-direction:column;gap:.9rem;background:linear-gradient(165deg,var(--surface),var(--bg-2));border:1px solid var(--line);border-radius:18px;padding:1.5rem}
+.cform .frow{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.cform .fld{display:flex;flex-direction:column;gap:.35rem;min-width:0}
+.cform label{font-family:var(--font-m);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.cform input,.cform select,.cform textarea{font-family:var(--font-b);font-size:.95rem;color:var(--text);background:var(--bg);border:1px solid var(--line-2);border-radius:10px;padding:.68em .8em;width:100%;transition:border-color .16s ease,box-shadow .16s ease}
+.cform input::placeholder,.cform textarea::placeholder{color:var(--faint)}
+.cform input:focus,.cform select:focus,.cform textarea:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px rgba(166,241,61,.14)}
+.cform textarea{resize:vertical;min-height:92px}
+.cform select{appearance:none;-webkit-appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6' fill='none' stroke='%2398a18c' stroke-width='1.5'%3E%3Cpath d='M1 1l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .85em center;padding-right:2.1em}
+.cform .btn-primary{align-self:flex-start;margin-top:.3rem}
+.cform .hp{position:absolute!important;left:-9999px;width:0;height:0;opacity:0}
+.cform-status{font-size:.9rem;line-height:1.5}
+.cform-status.ok{color:var(--lime)}
+.cform-status.err{color:#ff9d8c}
+.cform-status.err a{color:var(--gold-2)}
+
+/* ---------- footer ---------- */
+.foot{border-top:1px solid var(--line);padding-block:3rem 2.4rem}
+.foot-in{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;align-items:flex-start}
+.foot img{height:24px;margin-bottom:.9rem}
+.foot .tag-line{color:var(--muted);font-size:.9rem;max-width:30ch}
+.foot-links{display:flex;gap:3rem;flex-wrap:wrap}
+.foot-col h4{font-family:var(--font-m);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:400;margin-bottom:.8rem}
+.foot-col a{display:block;color:var(--muted);text-decoration:none;font-size:.9rem;margin-bottom:.5rem;transition:color .16s}
+.foot-col a:hover{color:var(--text)}
+.foot-bottom{margin-top:2.4rem;padding-top:1.4rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-family:var(--font-m);font-size:.74rem;color:var(--faint);letter-spacing:.04em}
+
+/* ---------- responsive ---------- */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .growth{order:2}
+  .contact-in{grid-template-columns:1fr;gap:1.6rem}
+  .caps{grid-template-columns:1fr}
+  .results-grid{grid-template-columns:repeat(2,1fr)}
+  .tgrid{grid-template-columns:1fr}
+  .pgrid .pcard,.pgrid .pcard.half{grid-column:span 3}
+  .pgrid .pcard:first-child{grid-column:span 6}
+}
+@media(max-width:760px){
+  .nav-links,.nav-cta .btn{display:none}
+  .nav-toggle{display:inline-block}
+  .nav[data-open="true"] .nav-links{display:flex;position:absolute;top:70px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg-2);border-bottom:1px solid var(--line);padding:.5rem 0}
+  .nav[data-open="true"] .nav-links a{padding:.9rem clamp(20px,5vw,48px)}
+  .pgrid .pcard,.pgrid .pcard.half,.pgrid .pcard:first-child{grid-column:span 6}
+}
+/* touch devices: keep the resting label visible; tapping opens full details */
+@media(hover:none){
+  .pcard .pshot{transform:none!important}
+}
+@media(max-width:560px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .sec-head{align-items:flex-start}
+  .cform .frow{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#work">Skip to work</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="Adridex home"><img src="images/adridex-wordmark.png" alt="Adridex"></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="#contact">Start a project <span class="ar">↗</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav" id="navToggle">Menu</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="glow" aria-hidden="true"></div>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="tick"></span>Digital marketing &times; Web development</span>
+        <h1>Web platforms<br>engineered to <span class="grad-text">grow.</span></h1>
+        <p class="lead">Adridex is a digital marketing studio shipping fast, search-ready websites &mdash; from custom WordPress systems to full-stack Next.js apps &mdash; built around numbers you can defend in a board meeting.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#work">See the work <span class="ar">↗</span></a>
+          <a class="btn btn-ghost" href="#contact">Start a project</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="n" data-count="7">7</div><div class="l">Projects delivered</div></div>
+          <div class="stat"><div class="n" data-count="4">4</div><div class="l">Industries served</div></div>
+          <div class="stat"><div class="n grad-text" data-count="3">3</div><div class="l">Core stacks</div></div>
+          <div class="stat"><div class="n tint-gold" data-count="100" data-suffix="%">100%</div><div class="l">Client-owned builds</div></div>
+        </div>
+      </div>
+
+      <!-- interactive growth panel -->
+      <div class="growth" id="growth">
+        <div class="growth-head"><span>// Growth trajectory</span><span class="dot"></span></div>
+        <div class="chart-wrap">
+          <svg id="growthChart" viewBox="0 0 460 260" role="img" aria-label="An upward growth trajectory across the stages of a project — hover the points for each stage">
+            <defs>
+              <linearGradient id="line" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0" stop-color="#46d24d"/>
+                <stop offset="0.55" stop-color="#a6f13d"/>
+                <stop offset="1" stop-color="#e7c96c"/>
+              </linearGradient>
+              <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#a6f13d" stop-opacity="0.20"/>
+                <stop offset="1" stop-color="#a6f13d" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <g stroke="#232b20" stroke-width="1">
+              <line x1="0" y1="65" x2="460" y2="65"/>
+              <line x1="0" y1="130" x2="460" y2="130"/>
+              <line x1="0" y1="195" x2="460" y2="195"/>
+            </g>
+            <path d="M20,222 L96,196 L172,206 L248,150 L324,120 L400,58 L400,240 L20,240 Z" fill="url(#fill)"/>
+            <path class="trace" d="M20,222 L96,196 L172,206 L248,150 L324,120 L400,58" fill="none" stroke="url(#line)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <g class="nodes" fill="#0c100b" stroke="url(#line)" stroke-width="2.4">
+              <circle cx="96" cy="196" r="4"/><circle cx="172" cy="206" r="4"/><circle cx="248" cy="150" r="4"/><circle cx="324" cy="120" r="4"/>
+            </g>
+            <g class="arrowhead" fill="none" stroke="#a6f13d" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M400,58 L438,26"/>
+              <path d="M414,26 L440,24 L438,50"/>
+            </g>
+            <g class="hits" fill="transparent">
+              <circle class="hit" cx="20" cy="222" r="16" data-label="Kickoff"/>
+              <circle class="hit" cx="96" cy="196" r="16" data-label="Foundations"/>
+              <circle class="hit" cx="172" cy="206" r="16" data-label="SEO live"/>
+              <circle class="hit" cx="248" cy="150" r="16" data-label="Content scales"/>
+              <circle class="hit" cx="324" cy="120" r="16" data-label="Rankings climb"/>
+              <circle class="hit" cx="400" cy="58" r="18" data-label="Compounding growth ↑"/>
+            </g>
+          </svg>
+          <div class="chart-tip" id="chartTip" hidden></div>
+        </div>
+        <div class="growth-tags">
+          <span class="gtag">Leads <b>&uarr;</b></span>
+          <span class="gtag">Rankings <b>&uarr;</b></span>
+          <span class="gtag">Core Web Vitals <b>&check;</b></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENTS -->
+  <section class="clients" aria-label="Clients we have built for">
+    <div class="wrap clients-in">
+      <span class="lbl">Clients we&rsquo;ve built for</span>
+      <div class="names">
+        <span>FindOurCollege</span>
+        <span>Computer Degrees Online</span>
+        <span>VSDL IT Solutions</span>
+        <span>SAT Train</span>
+        <span>Davakana</span>
+        <span>Clickefy</span>
+        <span>College Funding Specialists TX</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED WORK -->
+  <section class="band" id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow"><span class="tick"></span>Selected work</span>
+          <h2>Platforms we&rsquo;ve shipped</h2>
+          <p class="sub">Production sites and custom systems delivered end-to-end &mdash; design, build, SEO and the tooling that keeps client data in-house.</p>
+        </div>
+        <span class="sec-idx">01 / Featured</span>
+      </div>
+
+      <div class="pgrid">
+
+        <!-- SAT Train -->
+        <article class="pcard half" data-project="sattrain" role="button" tabindex="0" aria-label="SAT Train — open full project details">
+          <div class="pcard-media"><img class="pshot" src="images/work-sattrain.jpg" alt="SAT Train — 'Expert SAT Training Courses in Texas' hero for Find Our College" loading="lazy" width="1000" height="565"></div>
+          <span class="pdom">sattrain.findourcollege.com</span>
+          <span class="pcue">Details <span aria-hidden="true">↗</span></span>
+          <div class="pcard-rest"><h3>SAT Train</h3><span class="pcat">EdTech &middot; SaaS</span></div>
+          <div class="pcard-over">
+            <span class="pcat">EdTech &middot; SaaS</span>
+            <h3>SAT Train</h3>
+            <p class="pdesc">Next.js SAT-prep platform with a full CRM &mdash; separate dashboards for admins, students and teachers.</p>
+            <span class="pmore">View project <span aria-hidden="true">↗</span></span>
+          </div>
+        </article>
+
+        <!-- VSDL -->
+        <article class="pcard half" data-project="vsdl" role="button" tabindex="0" aria-label="VSDL IT Solutions — open full project details">
+          <div class="pcard-media"><img class="pshot" src="images/work-vsdl.jpg" alt="VSDL IT Solutions marketing site — 'Marketing that moves revenue' hero with a live budget-leak calculator" loading="lazy" width="880" height="367"></div>
+          <span class="pdom">vsdlsol.com</span>
+          <span class="pcue">Details <span aria-hidden="true">↗</span></span>
+          <div class="pcard-rest"><h3>VSDL IT Solutions</h3><span class="pcat">Marketing &middot; IT</span></div>
+          <div class="pcard-over">
+            <span class="pcat">Marketing &middot; IT</span>
+            <h3>VSDL IT Solutions</h3>
+            <p class="pdesc">Full-funnel marketing site with a live budget-leak calculator &mdash; packaged as a WordPress theme.</p>
+            <span class="pmore">View project <span aria-hidden="true">↗</span></span>
+          </div>
+        </article>
+
+        <!-- FOC -->
+        <article class="pcard" data-project="foc" role="button" tabindex="0" aria-label="FindOurCollege — open full project details">
+          <div class="pcard-media"><img class="pshot" src="images/work-foc.jpg" alt="FindOurCollege.com hero — 'Find your best college, get expert guidance' with a degree finder" loading="lazy" width="880" height="367"></div>
+          <span class="pdom">findourcollege.com</span>
+          <span class="pcue">Details <span aria-hidden="true">↗</span></span>
+          <div class="pcard-rest"><h3>FindOurCollege</h3><span class="pcat">EdTech</span></div>
+          <div class="pcard-over">
+            <span class="pcat">EdTech</span>
+            <h3>FindOurCollege</h3>
+            <p class="pdesc">College-planning &amp; SAT-prep platform with custom booking plugins, JSON-LD schema and Core Web Vitals tuning.</p>
+            <span class="pmore">View project <span aria-hidden="true">↗</span></span>
+          </div>
+        </article>
+
+        <!-- CDO -->
+        <article class="pcard" data-project="cdo" role="button" tabindex="0" aria-label="Computer Degrees Online — open full project details">
+          <div class="pcard-media"><img class="pshot" src="images/work-cdo.jpg" alt="ComputerDegreesOnline.org hero panel with student imagery" loading="lazy" width="880" height="322"></div>
+          <span class="pdom">computerdegreesonline.org</span>
+          <span class="pcue">Details <span aria-hidden="true">↗</span></span>
+          <div class="pcard-rest"><h3>Computer Degrees Online</h3><span class="pcat">EdTech</span></div>
+          <div class="pcard-over">
+            <span class="pcat">EdTech</span>
+            <h3>Computer Degrees Online</h3>
+            <p class="pdesc">700+ program rankings and 1,500+ guides, on a methodology sourced from IPEDS, NCES &amp; BLS data.</p>
+            <span class="pmore">View project <span aria-hidden="true">↗</span></span>
+          </div>
+        </article>
+
+        <!-- Davakana -->
+        <article class="pcard" data-project="davakana" role="button" tabindex="0" aria-label="Davakana — open full project details">
+          <div class="pcard-media"><img class="pshot" src="images/work-davakana.jpg" alt="Davakana doctor-appointment platform — 'We Care Our Patients' services page" loading="lazy" width="880" height="440"></div>
+          <span class="pdom">davakana.in</span>
+          <span class="pcue">Details <span aria-hidden="true">↗</span></span>
+          <div class="pcard-rest"><h3>Davakana</h3><span class="pcat">HealthTech</span></div>
+          <div class="pcard-over">
+            <span class="pcat">HealthTech</span>
+            <h3>Davakana</h3>
+            <p class="pdesc">Doctor-appointment platform &mdash; end-to-end discovery, booking and consultations, delivered client-owned.</p>
+            <span class="pmore">View project <span aria-hidden="true">↗</span></span>
+          </div>
+        </article>
+
+        <!-- CFS (branded panel) -->
+        <article class="pcard half" data-project="cfs" role="button" tabindex="0" aria-label="College Funding Specialists TX — open full project details">
+          <div class="pcard-media"><div class="brandpanel"><span class="chip">plugin&nbsp;&middot;&nbsp;<b>CFS&nbsp;Lead&nbsp;System</b></span></div></div>
+          <span class="pdom">collegefundingspecialiststx.com</span>
+          <span class="pcue">Details <span aria-hidden="true">↗</span></span>
+          <div class="pcard-rest"><h3>College Funding Specialists TX</h3><span class="pcat">Fin-Planning</span></div>
+          <div class="pcard-over">
+            <span class="pcat">Fin-Planning</span>
+            <h3>College Funding Specialists TX</h3>
+            <p class="pdesc">Marketing site + custom &ldquo;CFS Lead System&rdquo; plugin: own database, admin dashboard, spam-protected without CAPTCHA.</p>
+            <span class="pmore">View project <span aria-hidden="true">↗</span></span>
+          </div>
+        </article>
+
+        <!-- Clickefy -->
+        <article class="pcard half" data-project="clickefy" role="button" tabindex="0" aria-label="Clickefy — open full project details">
+          <div class="pcard-media"><img class="pshot" src="images/work-clickefy.jpg" alt="Clickefy digital-marketing site — 'Scroll less, grow more' hero with an enquiry form" loading="lazy" width="1000" height="572"></div>
+          <span class="pdom">clickefy.com</span>
+          <span class="pcue">Details <span aria-hidden="true">↗</span></span>
+          <div class="pcard-rest"><h3>Clickefy</h3><span class="pcat">Digital Marketing</span></div>
+          <div class="pcard-over">
+            <span class="pcat">Digital Marketing</span>
+            <h3>Clickefy</h3>
+            <p class="pdesc">Data-driven digital-marketing site &mdash; SEO to social &mdash; on a custom WordPress theme with lead-gen forms.</p>
+            <span class="pmore">View project <span aria-hidden="true">↗</span></span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="band results" id="results">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow"><span class="tick"></span>By the numbers</span>
+          <h2>Results that move the metric</h2>
+          <p class="sub">Real figures from the platforms we&rsquo;ve built &mdash; the outcomes clients can point to.</p>
+        </div>
+        <span class="sec-idx">02 / Impact</span>
+      </div>
+      <div class="results-grid">
+        <div class="result"><div class="rn">+140<span class="u">pts</span></div><div class="rl">Avg. SAT score improvement</div><div class="rs">SAT Train</div></div>
+        <div class="result"><div class="rn grad-text">700+</div><div class="rl">Program rankings engineered</div><div class="rs">Computer Degrees Online</div></div>
+        <div class="result"><div class="rn">1,500+</div><div class="rl">SEO guides published</div><div class="rs">Computer Degrees Online</div></div>
+        <div class="result"><div class="rn tint-gold">100%</div><div class="rl">Client-owned builds</div><div class="rs">Every project</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="band" id="testimonials">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow"><span class="tick"></span>What clients say</span>
+          <h2>Trusted by the teams we build for</h2>
+          <p class="sub">A few words from the founders and teams behind the work.</p>
+        </div>
+        <span class="sec-idx">03 / Voices</span>
+      </div>
+      <!-- PLACEHOLDER testimonials — replace the quotes and attributions with real client feedback before going live -->
+      <div class="tgrid">
+        <figure class="tcard">
+          <div class="q" aria-hidden="true">&ldquo;</div>
+          <blockquote>Adridex rebuilt our site and the enquiries started coming in &mdash; fast, clean, and finally something we fully own.</blockquote>
+          <figcaption class="who"><span class="nm">Founder</span><span class="rl">Education brand</span></figcaption>
+        </figure>
+        <figure class="tcard">
+          <div class="q" aria-hidden="true">&ldquo;</div>
+          <blockquote>They didn&rsquo;t just design a page &mdash; they built the CRM and dashboards our admins, teachers and students run on every day.</blockquote>
+          <figcaption class="who"><span class="nm">Program Director</span><span class="rl">SAT prep</span></figcaption>
+        </figure>
+        <figure class="tcard">
+          <div class="q" aria-hidden="true">&ldquo;</div>
+          <blockquote>Rankings, speed and tracking, handled in one go. For the first time we could see what our marketing was doing.</blockquote>
+          <figcaption class="who"><span class="nm">Owner</span><span class="rl">Local service business</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES -->
+  <section class="band" id="capabilities">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow"><span class="tick"></span>What we do</span>
+          <h2>Capabilities</h2>
+          <p class="sub">One team across marketing and engineering &mdash; so the site, the systems and the tracking are built to work together.</p>
+        </div>
+        <span class="sec-idx">04 / Services</span>
+      </div>
+
+      <div class="caps">
+        <div class="cap">
+          <h3><span class="k">01</span> Web Development</h3>
+          <ul><li>Custom WordPress themes</li><li>WordPress plugins</li><li>Next.js &amp; React</li><li>MERN full-stack</li><li>REST APIs</li><li>Real-time (Socket.IO)</li></ul>
+        </div>
+        <div class="cap">
+          <h3><span class="k">02</span> Marketing &amp; SEO</h3>
+          <ul><li>Technical SEO</li><li>JSON-LD schema</li><li>Meta Pixel</li><li>Google Search Console</li><li>Bing Webmaster</li><li>Analytics setup</li></ul>
+        </div>
+        <div class="cap">
+          <h3><span class="k">03</span> Performance</h3>
+          <ul><li>Core Web Vitals</li><li>PageSpeed optimization</li><li>WP Rocket</li><li>LiteSpeed cache</li><li>Builder-free markup</li></ul>
+        </div>
+        <div class="cap">
+          <h3><span class="k">04</span> Custom Systems</h3>
+          <ul><li>Lead-capture systems</li><li>Appointment &amp; booking</li><li>Admin dashboards</li><li>Workshop management</li><li>Client-owned data</li></ul>
+        </div>
+      </div>
+
+      <div class="techrow">
+        <span class="lbl">Stack</span>
+        <span class="chip-t">React</span><span class="chip-t">Next.js</span><span class="chip-t">Node.js</span><span class="chip-t">Express</span><span class="chip-t">MongoDB</span><span class="chip-t">PostgreSQL</span><span class="chip-t">Supabase</span><span class="chip-t">Prisma</span><span class="chip-t">WordPress</span><span class="chip-t">PHP</span><span class="chip-t">Tailwind</span><span class="chip-t">Socket.IO</span><span class="chip-t">Three.js</span><span class="chip-t">Nodemailer</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="band contact" id="contact">
+    <div class="wrap contact-in">
+      <div>
+        <span class="eyebrow"><span class="tick"></span>Start a project</span>
+        <h2>Ready to move the metric that matters?</h2>
+        <p>Tell us what you&rsquo;re building. We&rsquo;ll come back with a plan, a stack and numbers you can hold us to &mdash; usually within one business day.</p>
+        <!-- Replace the email, WhatsApp number and phone below with Adridex's real details -->
+        <div class="contact-methods">
+          <a class="cmethod" href="mailto:hello@adridex.com"><span class="ci" aria-hidden="true">&#9993;</span><span><span class="ck">Email</span><span class="cv">hello@adridex.com</span></span></a>
+          <a class="cmethod" href="https://wa.me/910000000000" target="_blank" rel="noopener"><span class="ci" aria-hidden="true">&#9990;</span><span><span class="ck">WhatsApp</span><span class="cv">Chat with us</span></span></a>
+          <a class="cmethod" href="tel:+910000000000"><span class="ci" aria-hidden="true">&#9742;</span><span><span class="ck">Call</span><span class="cv">+91 00000 00000</span></span></a>
+        </div>
+      </div>
+
+      <!-- Paste your Web3Forms access key (free at web3forms.com) into value="" below to enable sending -->
+      <form id="contactForm" class="cform" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+        <input type="hidden" name="subject" value="New project enquiry — Adridex portfolio">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="frow">
+          <div class="fld"><label for="cf-name">Name</label><input id="cf-name" name="name" type="text" required autocomplete="name" placeholder="Your name"></div>
+          <div class="fld"><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" required autocomplete="email" placeholder="you@company.com"></div>
+        </div>
+        <div class="frow">
+          <div class="fld"><label for="cf-company">Company</label><input id="cf-company" name="company" type="text" autocomplete="organization" placeholder="Company (optional)"></div>
+          <div class="fld"><label for="cf-service">Service</label>
+            <select id="cf-service" name="service">
+              <option>Web development</option>
+              <option>Digital marketing / SEO</option>
+              <option>Custom system / CRM</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+        </div>
+        <div class="fld"><label for="cf-msg">Project</label><textarea id="cf-msg" name="message" rows="4" required placeholder="Tell us what you're building…"></textarea></div>
+        <button type="submit" class="btn btn-primary" id="cf-submit">Send enquiry <span class="ar">↗</span></button>
+        <p class="cform-status" id="cf-status" role="status" aria-live="polite" hidden></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-in">
+      <div>
+        <img src="images/adridex-wordmark.png" alt="Adridex">
+        <p class="tag-line">Digital marketing studio. Web platforms engineered to grow.</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h4>Explore</h4>
+          <a href="#work">Featured work</a>
+          <a href="#capabilities">Capabilities</a>
+        </div>
+        <div class="foot-col">
+          <h4>Connect</h4>
+          <a href="mailto:hello@adridex.com">hello@adridex.com</a>
+          <a href="https://www.adridex.com" target="_blank" rel="noopener">adridex.com</a>
+          <a href="#contact">Start a project</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; <span id="yr">2026</span> Adridex &mdash; All rights reserved.</span>
+      <span>Built for growth &nearr;</span>
+    </div>
+  </div>
+</footer>
+
+<!-- project detail modal -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <button class="modal-x" id="modalX" type="button" aria-label="Close details">&#10005;</button>
+    <div class="modal-media" id="m-media"></div>
+    <div class="modal-body">
+      <div class="m-meta"><span class="pcat" id="m-cat"></span><a class="m-domain" id="m-domain" target="_blank" rel="noopener"></a></div>
+      <h3 id="m-title"></h3>
+      <p class="m-desc" id="m-desc"></p>
+      <ul class="m-hl" id="m-hl"></ul>
+      <div class="tags" id="m-tags"></div>
+      <a class="btn btn-primary" id="m-visit" target="_blank" rel="noopener">Visit site <span class="ar">↗</span></a>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    // ----- nav -----
+    var nav=document.getElementById('nav'), t=document.getElementById('navToggle');
+    if(t){t.addEventListener('click',function(){
+      var open=nav.getAttribute('data-open')==='true';
+      nav.setAttribute('data-open',String(!open));
+      t.setAttribute('aria-expanded',String(!open));
+    });}
+    nav.querySelectorAll('.nav-links a').forEach(function(a){
+      a.addEventListener('click',function(){nav.setAttribute('data-open','false');t&&t.setAttribute('aria-expanded','false');});
+    });
+    var yr=document.getElementById('yr'); if(yr){yr.textContent=new Date().getFullYear();}
+
+    // ----- project detail modal -----
+    var PROJECTS={
+      sattrain:{name:"SAT Train",cat:"EdTech · SaaS",domain:"sattrain.findourcollege.com",url:"https://www.sattrain.findourcollege.com",img:"images/work-sattrain.jpg",
+        desc:"A Next.js SAT-preparation platform for Find Our College — live group coaching and digital SAT prep, powered by a dedicated multi-role CRM.",
+        hl:["Dedicated CRM with separate dashboards for admins, students and teachers","Role-based access — each user type gets its own workspace and permissions","Course enrolment, scheduling and student-progress tracking","Built in Next.js for fast, SEO-friendly performance"],
+        tags:["Next.js","CRM","Role-based Auth","Dashboards","Full-stack"]},
+      vsdl:{name:"VSDL IT Solutions",cat:"Marketing · IT",domain:"vsdlsol.com",url:"https://vsdlsol.com",img:"images/work-vsdl.jpg",
+        desc:"A full-funnel digital-marketing and web-development site for a Leander, TX IT consultancy — a distinct signature design per section, packaged as an installable WordPress theme.",
+        hl:["Live “budget-leak” calculator and click-to-expand service cards","Animated process rail and a hub-and-spoke industries diagram","Self-contained HTML/CSS/JS, portable as WordPress blocks — header, footer, page templates and custom nav"],
+        tags:["WordPress theme","HTML/CSS/JS","Interactive UI","Performance"]},
+      foc:{name:"FindOurCollege",cat:"EdTech",domain:"findourcollege.com",url:"https://www.findourcollege.com",img:"images/work-foc.jpg",
+        desc:"A comprehensive college-planning and SAT-prep platform helping US students and families navigate admissions, guidance and financial-aid resources.",
+        hl:["Custom WordPress plugins power appointment booking and SAT-workshop registration","Technical SEO with JSON-LD structured data across key page types","Core Web Vitals & PageSpeed tuning for fast, mobile-friendly performance","Marketing setup: Meta Pixel, Google Search Console and Bing Webmaster Tools"],
+        tags:["WordPress","PHP","Custom Plugins","SEO","Core Web Vitals"]},
+      cdo:{name:"Computer Degrees Online",cat:"EdTech",domain:"computerdegreesonline.org",url:"https://www.computerdegreesonline.org",img:"images/work-cdo.jpg",
+        desc:"A research-driven education platform helping students compare accredited online computer-science programs, from associate through doctorate level.",
+        hl:["700+ program rankings and 1,500+ college-planning guides","Structured, methodology-based rankings sourced from IPEDS, NCES and BLS data","WP Rocket handling caching and performance","Dedicated resource hubs for financial aid, scholarships and career guidance"],
+        tags:["WordPress","WP Rocket","Data / SEO","Content"]},
+      davakana:{name:"Davakana",cat:"HealthTech",domain:"davakana.in",url:"https://davakana.in",img:"images/work-davakana.jpg",
+        desc:"A healthcare booking platform enabling patients to find doctors and schedule appointments online — built and delivered as a client-owned product.",
+        hl:["End-to-end doctor discovery and appointment scheduling","Lab tests, reports and online consultation flows","Delivered as a client-owned platform"],
+        tags:["Booking system","Full-stack","Healthcare"]},
+      cfs:{name:"College Funding Specialists TX",cat:"Fin-Planning",domain:"collegefundingspecialiststx.com",url:"https://collegefundingspecialiststx.com",brand:true,
+        desc:"A full seven-page marketing site built for founder Ryan Thomson’s college financial-planning practice, later converted into a custom WordPress theme.",
+        hl:["Purpose-built “CFS Lead System” plugin — its own database table, admin dashboard and workshop management","Leads kept in-house and spam-protected without CAPTCHA","Custom “Founder Hero” about page and branded workshop flyers","LiteSpeed Cache for performance; deployed and maintained on Hostinger"],
+        tags:["Custom Theme","Custom Plugin","Lead System","LiteSpeed"]},
+      clickefy:{name:"Clickefy",cat:"Digital Marketing",domain:"clickefy.com",url:"https://clickefy.com",img:"images/work-clickefy.jpg",
+        desc:"A data-driven digital-marketing website for Clickefy — “scroll less, grow more” — built on a custom WordPress theme spanning SEO, social and lead generation.",
+        hl:["Custom WordPress theme with service pages and a blog system","Lead-generation enquiry forms wired to the business","Schema markup (structured data) for richer search results","Core Web Vitals and performance tuning"],
+        tags:["WordPress","PHP","SEO","Lead-gen"]}
+    };
+    var modal=document.getElementById('modal'),
+        mMedia=document.getElementById('m-media'), mCat=document.getElementById('m-cat'),
+        mDomain=document.getElementById('m-domain'), mTitle=document.getElementById('m-title'),
+        mDesc=document.getElementById('m-desc'), mHl=document.getElementById('m-hl'),
+        mTags=document.getElementById('m-tags'), mVisit=document.getElementById('m-visit'),
+        mX=document.getElementById('modalX'), lastFocused=null;
+
+    function fill(p){
+      if(p.brand){
+        mMedia.innerHTML='<div class="modal-brand"><span class="chip">plugin&nbsp;·&nbsp;<b>CFS&nbsp;Lead&nbsp;System</b></span></div>';
+      }else{
+        mMedia.innerHTML='';
+        var im=document.createElement('img'); im.src=p.img; im.alt=p.name+' — screenshot'; mMedia.appendChild(im);
+      }
+      mCat.textContent=p.cat;
+      mDomain.textContent=p.domain; mDomain.href=p.url;
+      mTitle.textContent=p.name;
+      mDesc.textContent=p.desc;
+      mHl.replaceChildren.apply(mHl,p.hl.map(function(h){var li=document.createElement('li');li.textContent=h;return li;}));
+      mTags.replaceChildren.apply(mTags,p.tags.map(function(t,i){var s=document.createElement('span');s.className='tag'+(i===0?' key':'');s.textContent=t;return s;}));
+      mVisit.href=p.url;
+    }
+    function openModal(id){
+      var p=PROJECTS[id]; if(!p)return;
+      lastFocused=document.activeElement;
+      fill(p);
+      modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+      mX.focus();
+    }
+    function closeModal(){
+      modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+      if(lastFocused&&lastFocused.focus)lastFocused.focus();
+    }
+    document.querySelectorAll('.pcard[data-project]').forEach(function(card){
+      card.addEventListener('click',function(){openModal(card.getAttribute('data-project'));});
+      card.addEventListener('keydown',function(e){
+        if(e.key==='Enter'||e.key===' '){e.preventDefault();openModal(card.getAttribute('data-project'));}
+      });
+    });
+    mX.addEventListener('click',closeModal);
+    modal.addEventListener('click',function(e){if(e.target===modal)closeModal();});
+    document.addEventListener('keydown',function(e){
+      if(!modal.classList.contains('open'))return;
+      if(e.key==='Escape'){closeModal();return;}
+      if(e.key==='Tab'){
+        var f=modal.querySelectorAll('button, a[href]');
+        if(!f.length)return;
+        var first=f[0], last=f[f.length-1];
+        if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+        else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+      }
+    });
+
+    // ----- interactive hero -----
+    var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // animated count-up stats
+    document.querySelectorAll('.stat .n[data-count]').forEach(function(el){
+      var target=parseFloat(el.getAttribute('data-count')), suf=el.getAttribute('data-suffix')||'';
+      if(rm){el.textContent=target+suf;return;}
+      var t0=null, dur=1100;
+      function step(t){ if(!t0)t0=t; var p=Math.min((t-t0)/dur,1), e=1-Math.pow(1-p,3);
+        el.textContent=Math.round(target*e)+suf; if(p<1){requestAnimationFrame(step);} else {el.textContent=target+suf;} }
+      requestAnimationFrame(step);
+    });
+    // growth chart hover tooltips + draw-in
+    var chart=document.getElementById('growthChart'), tip=document.getElementById('chartTip');
+    if(chart&&tip){
+      chart.querySelectorAll('.hit').forEach(function(h){
+        function show(){
+          var scale=chart.clientWidth/460;
+          tip.textContent=h.getAttribute('data-label');
+          tip.style.left=(parseFloat(h.getAttribute('cx'))*scale)+'px';
+          tip.style.top=(parseFloat(h.getAttribute('cy'))*scale)+'px';
+          tip.hidden=false;
+        }
+        h.addEventListener('mouseenter',show);
+        h.addEventListener('mouseleave',function(){tip.hidden=true;});
+      });
+      var trace=chart.querySelector('.trace');
+      if(trace&&!rm){
+        var len=trace.getTotalLength();
+        trace.style.strokeDasharray=len; trace.style.strokeDashoffset=len;
+        trace.getBoundingClientRect();
+        trace.style.transition='stroke-dashoffset 1.6s ease';
+        requestAnimationFrame(function(){trace.style.strokeDashoffset='0';});
+      }
+    }
+    // cursor-follow glow + parallax tilt
+    var hero=document.getElementById('hero'), growth=document.getElementById('growth');
+    if(hero){
+      hero.addEventListener('mousemove',function(e){
+        var r=hero.getBoundingClientRect();
+        hero.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+        hero.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+        if(growth&&!rm){
+          var g=growth.getBoundingClientRect();
+          var dx=(e.clientX-(g.left+g.width/2))/g.width, dy=(e.clientY-(g.top+g.height/2))/g.height;
+          growth.style.transform='rotateY('+(dx*6).toFixed(2)+'deg) rotateX('+(-dy*6).toFixed(2)+'deg)';
+        }
+      });
+      hero.addEventListener('mouseleave',function(){ if(growth)growth.style.transform=''; });
+    }
+
+    // ----- contact form (Web3Forms) -----
+    var cform=document.getElementById('contactForm');
+    if(cform){
+      cform.addEventListener('submit',function(e){
+        e.preventDefault();
+        var status=document.getElementById('cf-status'), btn=document.getElementById('cf-submit');
+        if(!cform.checkValidity()){cform.reportValidity();return;}
+        var orig=btn.innerHTML; btn.disabled=true; btn.textContent='Sending…'; status.hidden=true;
+        fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(cform)})
+          .then(function(r){return r.json();})
+          .then(function(j){
+            if(j.success){
+              cform.reset();
+              status.className='cform-status ok'; status.hidden=false;
+              status.textContent='Thanks — your enquiry is in. We’ll reply within one business day.';
+            }else{throw new Error(j.message||'failed');}
+          })
+          .catch(function(){
+            status.className='cform-status err'; status.hidden=false;
+            status.innerHTML='Couldn’t send just now — email us at <a href="mailto:hello@adridex.com">hello@adridex.com</a>.';
+          })
+          .finally(function(){btn.disabled=false; btn.innerHTML=orig;});
+      });
+    }
+  })();
+</script>
+</body>
+</html>
