@@ -40,6 +40,7 @@
   --font-b:"Hanken Grotesk",system-ui,sans-serif;
   --font-m:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
   --wrap:1180px;
+  --gut:clamp(20px,5vw,48px);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -50,12 +51,13 @@ body{
   overflow-x:hidden;
 }
 img{max-width:100%;display:block}
+[hidden]{display:none!important}
 a{color:inherit}
 h1,h2,h3,h4{font-family:var(--font-d);font-weight:700;line-height:1.05;margin:0;text-wrap:balance;letter-spacing:-.01em}
 p{margin:0}
 ::selection{background:rgba(166,241,61,.28);color:#fff}
 
-.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(20px,5vw,48px)}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
 .skip{position:absolute;left:-999px;top:0;z-index:100;background:var(--gold);color:#0a0d08;padding:.6em 1em;border-radius:0 0 10px 0;font-weight:600}
 .skip:focus{left:0}
 :focus-visible{outline:2px solid var(--lime);outline-offset:3px;border-radius:4px}
@@ -150,7 +152,7 @@ section{position:relative}
 .sec-idx{font-family:var(--font-m);font-size:.8rem;color:var(--faint);letter-spacing:.1em}
 
 /* ---------- featured work (compact + interactive) ---------- */
-.pgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.pgrid{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
 .pcard{grid-column:span 2;position:relative;aspect-ratio:3/2;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg-2);
   transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
 .pcard.half{grid-column:span 3}
@@ -158,11 +160,6 @@ section{position:relative}
 .pcard-media{position:absolute;inset:0}
 .pshot{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .5s ease}
 .pcard:hover .pshot,.pcard:focus-within .pshot{transform:scale(1.07)}
-.brandpanel{width:100%;height:100%;display:grid;place-items:center;background:
-   radial-gradient(80% 120% at 20% 0,rgba(70,210,77,.16),transparent 55%),
-   radial-gradient(80% 120% at 100% 100%,rgba(201,162,39,.18),transparent 55%),var(--bg-2)}
-.brandpanel .chip{font-family:var(--font-m);font-size:.78rem;color:var(--text);border:1px solid var(--line-2);background:rgba(0,0,0,.4);border-radius:9px;padding:.55em .85em}
-.brandpanel .chip b{color:var(--lime);font-weight:500}
 .pdom{position:absolute;top:10px;left:10px;z-index:3;font-family:var(--font-m);font-size:.67rem;color:var(--text);
   background:rgba(6,9,6,.55);border:1px solid var(--line-2);border-radius:6px;padding:.24em .55em;backdrop-filter:blur(4px)}
 .pcard-rest{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:.9rem 1rem;display:flex;flex-direction:column;gap:.12rem;
@@ -196,6 +193,15 @@ section{position:relative}
   background:rgba(6,9,6,.55);border:1px solid var(--line-2);border-radius:6px;padding:.28em .5em;display:inline-flex;align-items:center;gap:.35em;backdrop-filter:blur(4px);transition:border-color .2s,color .2s}
 .pcard:hover .pcue,.pcard:focus-within .pcue{border-color:var(--gold);color:var(--gold-2)}
 .pmore{font-family:var(--font-m);font-size:.72rem;color:var(--lime);display:inline-flex;align-items:center;gap:.4em;margin-top:.15rem}
+/* phone slider controls (shown only at ≤760px) */
+.pslider-ctl{display:none;align-items:center;justify-content:space-between;gap:.8rem;margin-top:1.1rem}
+.pdots{display:flex;flex-wrap:wrap;justify-content:center}
+.pdot{height:24px;min-width:16px;padding:0 4px;display:grid;place-items:center;background:none;border:0;cursor:pointer}
+.pdot::before{content:"";width:8px;height:8px;border-radius:999px;background:var(--line-2);transition:width .25s ease,background .25s ease}
+.pdot[aria-current="true"]::before{width:22px;background:var(--grad)}
+.pbtn{width:40px;height:40px;flex:none;display:grid;place-items:center;border-radius:50%;border:1px solid var(--line-2);background:var(--bg-2);color:var(--text);font-size:1rem;cursor:pointer;transition:border-color .18s,color .18s,opacity .18s}
+.pbtn:hover{border-color:var(--gold);color:var(--gold-2)}
+.pbtn:disabled{opacity:.35;cursor:default;border-color:var(--line-2);color:var(--text)}
 
 /* ---------- project modal ---------- */
 .modal{position:fixed;inset:0;z-index:200;display:none;place-items:start center;padding:clamp(14px,4vw,44px) 16px;background:rgba(4,6,4,.74);backdrop-filter:blur(6px);overflow:auto}
@@ -206,9 +212,6 @@ section{position:relative}
 .modal-x:hover{border-color:var(--gold);color:var(--gold-2)}
 .modal-media{position:relative;border-bottom:1px solid var(--line)}
 .modal-media img{width:100%;display:block}
-.modal-brand{aspect-ratio:16/7;display:grid;place-items:center;background:
-   radial-gradient(80% 120% at 20% 0,rgba(70,210,77,.16),transparent 55%),
-   radial-gradient(80% 120% at 100% 100%,rgba(201,162,39,.18),transparent 55%),var(--bg-2)}
 .modal-body{padding:1.4rem 1.6rem 1.7rem;display:flex;flex-direction:column;gap:.75rem}
 .m-meta{display:flex;justify-content:space-between;align-items:center;gap:.8rem;flex-wrap:wrap}
 .m-domain{font-family:var(--font-m);font-size:.76rem;color:var(--lime);text-decoration:none}
@@ -218,7 +221,7 @@ section{position:relative}
 .m-hl{list-style:none;padding:0;margin:.1rem 0;display:flex;flex-direction:column;gap:.5rem}
 .m-hl li{position:relative;padding-left:1.4rem;font-size:.9rem;color:#c9d1bf;line-height:1.5}
 .m-hl li::before{content:"";position:absolute;left:0;top:.5em;width:9px;height:9px;border-radius:2px;background:var(--grad);transform:rotate(45deg)}
-.modal-body .btn{align-self:flex-start;margin-top:.4rem}
+.m-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.4rem}
 
 /* ---------- capabilities ---------- */
 .caps{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
@@ -302,14 +305,19 @@ section{position:relative}
   .results-grid{grid-template-columns:repeat(2,1fr)}
   .tgrid{grid-template-columns:1fr}
   .pgrid .pcard,.pgrid .pcard.half{grid-column:span 3}
-  .pgrid .pcard:first-child{grid-column:span 6}
 }
 @media(max-width:760px){
   .nav-links,.nav-cta .btn{display:none}
   .nav-toggle{display:inline-block}
   .nav[data-open="true"] .nav-links{display:flex;position:absolute;top:70px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg-2);border-bottom:1px solid var(--line);padding:.5rem 0}
-  .nav[data-open="true"] .nav-links a{padding:.9rem clamp(20px,5vw,48px)}
-  .pgrid .pcard,.pgrid .pcard.half,.pgrid .pcard:first-child{grid-column:span 6}
+  .nav[data-open="true"] .nav-links a{padding:.9rem var(--gut)}
+  /* work grid becomes a swipeable, snapping row that bleeds to the screen edges */
+  .pgrid{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;
+    margin:-6px calc(-1*var(--gut));padding:6px var(--gut);scroll-padding-inline:var(--gut)}
+  .pgrid::-webkit-scrollbar{display:none}
+  .pgrid .pcard{flex:0 0 86%;scroll-snap-align:start}
+  .pgrid .pcard:hover{transform:none}
+  .pslider-ctl{display:flex}
 }
 /* touch devices: keep the resting label visible; tapping opens full details */
 @media(hover:none){
@@ -358,8 +366,8 @@ section{position:relative}
           <a class="btn btn-ghost" href="#contact">Start a project</a>
         </div>
         <div class="stats">
-          <div class="stat"><div class="n" data-count="7">7</div><div class="l">Projects delivered</div></div>
-          <div class="stat"><div class="n" data-count="4">4</div><div class="l">Industries served</div></div>
+          <div class="stat"><div class="n" data-count="8">8</div><div class="l">Projects delivered</div></div>
+          <div class="stat"><div class="n" data-count="5">5</div><div class="l">Industries served</div></div>
           <div class="stat"><div class="n grad-text" data-count="3">3</div><div class="l">Core stacks</div></div>
           <div class="stat"><div class="n tint-gold" data-count="100" data-suffix="%">100%</div><div class="l">Client-owned builds</div></div>
         </div>
@@ -420,6 +428,7 @@ section{position:relative}
     <div class="wrap clients-in">
       <span class="lbl">Clients we&rsquo;ve built for</span>
       <div class="names">
+        <span>North Sikkim Sharing</span>
         <span>FindOurCollege</span>
         <span>Computer Degrees Online</span>
         <span>VSDL IT Solutions</span>
@@ -445,6 +454,20 @@ section{position:relative}
 
       <div class="pgrid">
 
+        <!-- North Sikkim Sharing (site + CRM) -->
+        <article class="pcard half" data-project="nss" role="button" tabindex="0" aria-label="North Sikkim Sharing — open full project details">
+          <div class="pcard-media"><img class="pshot" src="images/work-nss.jpg" alt="North Sikkim Sharing — 'Share the road to the roof of Sikkim' hero with a tour and date search over a Himalayan lake" loading="lazy" width="1000" height="565"></div>
+          <span class="pdom">northsikkimsharing.in</span>
+          <span class="pcue">Details <span aria-hidden="true">↗</span></span>
+          <div class="pcard-rest"><h3>North Sikkim Sharing</h3><span class="pcat">Travel &middot; Booking + CRM</span></div>
+          <div class="pcard-over">
+            <span class="pcat">Travel &middot; Booking + CRM</span>
+            <h3>North Sikkim Sharing</h3>
+            <p class="pdesc">Next.js booking site for shared Himalayan SUV tours, plus a custom staff CRM that runs the operation behind it.</p>
+            <span class="pmore">View project <span aria-hidden="true">↗</span></span>
+          </div>
+        </article>
+
         <!-- SAT Train -->
         <article class="pcard half" data-project="sattrain" role="button" tabindex="0" aria-label="SAT Train — open full project details">
           <div class="pcard-media"><img class="pshot" src="images/work-sattrain.jpg" alt="SAT Train — 'Expert SAT Training Courses in Texas' hero for Find Our College" loading="lazy" width="1000" height="565"></div>
@@ -460,7 +483,7 @@ section{position:relative}
         </article>
 
         <!-- VSDL -->
-        <article class="pcard half" data-project="vsdl" role="button" tabindex="0" aria-label="VSDL IT Solutions — open full project details">
+        <article class="pcard" data-project="vsdl" role="button" tabindex="0" aria-label="VSDL IT Solutions — open full project details">
           <div class="pcard-media"><img class="pshot" src="images/work-vsdl.jpg" alt="VSDL IT Solutions marketing site — 'Marketing that moves revenue' hero with a live budget-leak calculator" loading="lazy" width="880" height="367"></div>
           <span class="pdom">vsdlsol.com</span>
           <span class="pcue">Details <span aria-hidden="true">↗</span></span>
@@ -515,9 +538,9 @@ section{position:relative}
           </div>
         </article>
 
-        <!-- CFS (branded panel) -->
-        <article class="pcard half" data-project="cfs" role="button" tabindex="0" aria-label="College Funding Specialists TX — open full project details">
-          <div class="pcard-media"><div class="brandpanel"><span class="chip">plugin&nbsp;&middot;&nbsp;<b>CFS&nbsp;Lead&nbsp;System</b></span></div></div>
+        <!-- CFS -->
+        <article class="pcard" data-project="cfs" role="button" tabindex="0" aria-label="College Funding Specialists TX — open full project details">
+          <div class="pcard-media"><img class="pshot" src="images/work-cfs.jpg" alt="College Funding Specialists hero — 'Your child deserves college. Not debt.' with a free-workshop call to action" loading="lazy" width="1000" height="565"></div>
           <span class="pdom">collegefundingspecialiststx.com</span>
           <span class="pcue">Details <span aria-hidden="true">↗</span></span>
           <div class="pcard-rest"><h3>College Funding Specialists TX</h3><span class="pcat">Fin-Planning</span></div>
@@ -530,7 +553,7 @@ section{position:relative}
         </article>
 
         <!-- Clickefy -->
-        <article class="pcard half" data-project="clickefy" role="button" tabindex="0" aria-label="Clickefy — open full project details">
+        <article class="pcard" data-project="clickefy" role="button" tabindex="0" aria-label="Clickefy — open full project details">
           <div class="pcard-media"><img class="pshot" src="images/work-clickefy.jpg" alt="Clickefy digital-marketing site — 'Scroll less, grow more' hero with an enquiry form" loading="lazy" width="1000" height="572"></div>
           <span class="pdom">clickefy.com</span>
           <span class="pcue">Details <span aria-hidden="true">↗</span></span>
@@ -543,6 +566,11 @@ section{position:relative}
           </div>
         </article>
 
+      </div>
+      <div class="pslider-ctl">
+        <button class="pbtn" type="button" data-dir="-1" aria-label="Previous project">&larr;</button>
+        <div class="pdots"></div>
+        <button class="pbtn" type="button" data-dir="1" aria-label="Next project">&rarr;</button>
       </div>
     </div>
   </section>
@@ -719,7 +747,10 @@ section{position:relative}
       <p class="m-desc" id="m-desc"></p>
       <ul class="m-hl" id="m-hl"></ul>
       <div class="tags" id="m-tags"></div>
-      <a class="btn btn-primary" id="m-visit" target="_blank" rel="noopener">Visit site <span class="ar">↗</span></a>
+      <div class="m-actions">
+        <a class="btn btn-primary" id="m-visit" target="_blank" rel="noopener">Visit site <span class="ar">↗</span></a>
+        <a class="btn btn-ghost" id="m-extra" target="_blank" rel="noopener" hidden></a>
+      </div>
     </div>
   </div>
 </div>
@@ -740,6 +771,11 @@ section{position:relative}
 
     // ----- project detail modal -----
     var PROJECTS={
+      nss:{name:"North Sikkim Sharing",cat:"Travel · Booking + CRM",domain:"northsikkimsharing.in",url:"https://www.northsikkimsharing.in",img:"images/work-nss.jpg",
+        desc:"A Next.js booking platform for a Gangtok operator that has run shared SUV tours to Lachen, Lachung, Yumthang and Gurudongmar Lake since 2007, plus the custom CRM the team runs it from.",
+        hl:["Tour-and-date search in the hero, with per-seat pricing on every shared departure","Tours grouped by region (North and East Sikkim), destination guides and a WhatsApp or call booking flow","Custom CRM at admin.northsikkimsharing.in: a staff-only operations console behind secure sign-in","Booking cancellation, permit FAQs and policy pages built into the site"],
+        tags:["Next.js","Custom CRM","Booking platform","Staff auth","Full-stack"],
+        extra:{label:"CRM console",url:"https://admin.northsikkimsharing.in"}},
       sattrain:{name:"SAT Train",cat:"EdTech · SaaS",domain:"sattrain.findourcollege.com",url:"https://www.sattrain.findourcollege.com",img:"images/work-sattrain.jpg",
         desc:"A Next.js SAT-preparation platform for Find Our College — live group coaching and digital SAT prep, powered by a dedicated multi-role CRM.",
         hl:["Dedicated CRM with separate dashboards for admins, students and teachers","Role-based access — each user type gets its own workspace and permissions","Course enrolment, scheduling and student-progress tracking","Built in Next.js for fast, SEO-friendly performance"],
@@ -760,7 +796,7 @@ section{position:relative}
         desc:"A healthcare booking platform enabling patients to find doctors and schedule appointments online — built and delivered as a client-owned product.",
         hl:["End-to-end doctor discovery and appointment scheduling","Lab tests, reports and online consultation flows","Delivered as a client-owned platform"],
         tags:["Booking system","Full-stack","Healthcare"]},
-      cfs:{name:"College Funding Specialists TX",cat:"Fin-Planning",domain:"collegefundingspecialiststx.com",url:"https://collegefundingspecialiststx.com",brand:true,
+      cfs:{name:"College Funding Specialists TX",cat:"Fin-Planning",domain:"collegefundingspecialiststx.com",url:"https://collegefundingspecialiststx.com",img:"images/work-cfs.jpg",
         desc:"A full seven-page marketing site built for founder Ryan Thomson’s college financial-planning practice, later converted into a custom WordPress theme.",
         hl:["Purpose-built “CFS Lead System” plugin — its own database table, admin dashboard and workshop management","Leads kept in-house and spam-protected without CAPTCHA","Custom “Founder Hero” about page and branded workshop flyers","LiteSpeed Cache for performance; deployed and maintained on Hostinger"],
         tags:["Custom Theme","Custom Plugin","Lead System","LiteSpeed"]},
@@ -774,15 +810,11 @@ section{position:relative}
         mDomain=document.getElementById('m-domain'), mTitle=document.getElementById('m-title'),
         mDesc=document.getElementById('m-desc'), mHl=document.getElementById('m-hl'),
         mTags=document.getElementById('m-tags'), mVisit=document.getElementById('m-visit'),
-        mX=document.getElementById('modalX'), lastFocused=null;
+        mExtra=document.getElementById('m-extra'), mX=document.getElementById('modalX'), lastFocused=null;
 
     function fill(p){
-      if(p.brand){
-        mMedia.innerHTML='<div class="modal-brand"><span class="chip">plugin&nbsp;·&nbsp;<b>CFS&nbsp;Lead&nbsp;System</b></span></div>';
-      }else{
-        mMedia.innerHTML='';
-        var im=document.createElement('img'); im.src=p.img; im.alt=p.name+' — screenshot'; mMedia.appendChild(im);
-      }
+      mMedia.innerHTML='';
+      var im=document.createElement('img'); im.src=p.img; im.alt=p.name+' — screenshot'; mMedia.appendChild(im);
       mCat.textContent=p.cat;
       mDomain.textContent=p.domain; mDomain.href=p.url;
       mTitle.textContent=p.name;
@@ -790,6 +822,14 @@ section{position:relative}
       mHl.replaceChildren.apply(mHl,p.hl.map(function(h){var li=document.createElement('li');li.textContent=h;return li;}));
       mTags.replaceChildren.apply(mTags,p.tags.map(function(t,i){var s=document.createElement('span');s.className='tag'+(i===0?' key':'');s.textContent=t;return s;}));
       mVisit.href=p.url;
+      // optional second link (e.g. a companion CRM); drop href when unused so the focus trap skips it
+      if(p.extra){
+        mExtra.innerHTML=''; mExtra.append(p.extra.label+' ');
+        var ar=document.createElement('span'); ar.className='ar'; ar.textContent='↗'; mExtra.appendChild(ar);
+        mExtra.href=p.extra.url; mExtra.hidden=false;
+      }else{
+        mExtra.removeAttribute('href'); mExtra.hidden=true;
+      }
     }
     function openModal(id){
       var p=PROJECTS[id]; if(!p)return;
@@ -872,6 +912,38 @@ section{position:relative}
         }
       });
       hero.addEventListener('mouseleave',function(){ if(growth)growth.style.transform=''; });
+    }
+
+    // ----- phone work slider (the controls are only visible at ≤760px) -----
+    var pgrid=document.querySelector('.pgrid'), pctl=document.querySelector('.pslider-ctl');
+    if(pgrid&&pctl){
+      var pcards=[].slice.call(pgrid.querySelectorAll('.pcard')),
+          pprev=pctl.querySelector('[data-dir="-1"]'), pnext=pctl.querySelector('[data-dir="1"]'),
+          pcur=0, pticking=false;
+      function pgo(i){
+        i=Math.max(0,Math.min(pcards.length-1,i));
+        pgrid.scrollTo({left:pcards[i].offsetLeft-pcards[0].offsetLeft,behavior:rm?'auto':'smooth'});
+      }
+      var pdots=pcards.map(function(c,i){
+        var d=document.createElement('button'); d.type='button'; d.className='pdot';
+        d.setAttribute('aria-label','Show project '+(i+1)+' of '+pcards.length+': '+c.querySelector('h3').textContent);
+        d.addEventListener('click',function(){pgo(i);});
+        pctl.querySelector('.pdots').appendChild(d); return d;
+      });
+      function pmark(){
+        var x=pgrid.scrollLeft, bd=Infinity;
+        pcards.forEach(function(c,i){var d=Math.abs(c.offsetLeft-pcards[0].offsetLeft-x); if(d<bd){bd=d;pcur=i;}});
+        // the last card can't reach the snap edge, so treat the end of the track as the last card
+        if(x+pgrid.clientWidth>=pgrid.scrollWidth-2)pcur=pcards.length-1;
+        pdots.forEach(function(d,i){d.setAttribute('aria-current',String(i===pcur));});
+        pprev.disabled=pcur===0; pnext.disabled=pcur===pcards.length-1;
+      }
+      pprev.addEventListener('click',function(){pgo(pcur-1);});
+      pnext.addEventListener('click',function(){pgo(pcur+1);});
+      pgrid.addEventListener('scroll',function(){
+        if(!pticking){pticking=true;requestAnimationFrame(function(){pticking=false;pmark();});}
+      },{passive:true});
+      pmark();
     }
 
     // ----- contact form (Web3Forms) -----
